@@ -456,7 +456,6 @@ button {
     z-index: 999;
 }
 .petition .sign-the-petition:hover {
-    color: #fff;
     background-color: #d01010;
     box-shadow: 0 2px 9px rgba(0, 0, 0, 0.08);
 }
@@ -1001,7 +1000,6 @@ body .twitter-tool .tweet {
 }
 
 body .twitter-tool .congratulations {
-    color: #fff;
     display: none;
 }
 
