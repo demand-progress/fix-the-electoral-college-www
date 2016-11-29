@@ -5,10 +5,10 @@ import StaticKit from './static-kit';
 var constants = {};
 
 // General
-constants.domain = 'endsuperdelegates.com';
+constants.domain = 'fixtheelectoralcollege.net';
 
 // Social
-constants.emailSubject = 'Sign this petition: End Superdelegates';
+constants.emailSubject = 'Sign this petition: Fix the Electoral College';
 constants.emailBody = `Hi,
 
 I just signed a petition at EndSuperdelegates.com telling the Democratic Party to eliminate the concept of so-called “superdelegates.”
@@ -21,7 +21,8 @@ Thanks!`;
 constants.tweet = `Fix the Electoral College: Whoever gets the most popular votes should become president! http://fixtheelectoralcollege.com`;
 
 // APIs
-constants.actionKitPage = 'endsuperdelegates-www-with-partners';
+constants.actionKitPage = 'fix-the-electoral-college-www';
+constants.actionKitPageAlt = 'fix-the-electoral-college-www-npv';
 constants.callToolURL = 'https://dp-call-congress.herokuapp.com/create?callback=?';
 constants.feedbackToolURL = 'https://dp-feedback-tool.herokuapp.com/api/v1/feedback?callback=?';
 constants.sunlightAPIKey = '3779f52f552743d999b2c5fe1cda70b6';
