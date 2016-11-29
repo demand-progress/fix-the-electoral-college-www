@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "babel-core": "*",
     "babel-loader": "*",
     "babel-polyfill": "*",
     "babel-preset-es2015": "*",

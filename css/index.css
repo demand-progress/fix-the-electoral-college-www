@@ -55,20 +55,15 @@ em {
 }
 
 body {
+    background-attachment: fixed;
     background-color: #f1f1f1;
-    /*background-image: url(../images/ScreenShot2016-11-25.png);
-    background-position: top center;
+    background-image: url(../images/iStock-526641551.jpg);
     background-repeat: no-repeat;
-    background-size: 100% auto;*/
+    background-size: contain;
     font-family: 'Roboto', sans-serif;
     min-width: 320px;
     text-align: center;
 }
-/*@media screen and (max-width: 1589px) {
-    body {
-        background-size: auto 615px;
-    }
-}*/
 @media screen and (max-width: 769px) {
     img {
         max-width: 100%;
@@ -81,9 +76,8 @@ body {
          background-size: 599px;
     }
 }
-header {}
 header .headlines {
-    margin: 36px auto 70px;
+    margin: 40px auto 60px;
 }
 header .headlines h1, header .headlines h2, header .headlines h3 {
     font-family: 'Roboto Condensed', sans-serif;
@@ -97,10 +91,10 @@ header .headlines h1, header .headlines h2, header .headlines h3 {
     }
 }
 header .headlines h1 {
-    background-color: rgba(255, 0, 0, 0.7);
+    background-color: #ff2810;
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
     color: #f1f1f1;
-    font-size: 80px;
+    font-size: 72px;
     letter-spacing: 1px;
     padding: 12px 16px 11px;
 }
@@ -108,9 +102,12 @@ header .headlines h1 a {
     color: #f1f1f1;
     text-decoration: none;
 }
+header .headlines h1 a span {
+    color: #882303;
+}
 @media screen and (min-width: 861px) {
     header .headlines h1 a span {
-        font-size: 58px;
+        font-size: 50px;
     }
 }
 @media screen and (max-width: 860px) {
@@ -141,7 +138,7 @@ header .headlines h1 a {
     position: relative;
 }
 .petition {
-    color: #444;
+    color: #222;
     font-size: 17px;
     line-height: 1.4;
     margin: 0px 310px 0 0;
@@ -151,10 +148,10 @@ header .headlines h1 a {
     text-align: center;
 }
 .petition p {
-    font-weight: 300;
     line-height: 26px;
     padding: 0 24px 24px;
     text-align: left;
+    text-shadow: 0px 0px 7px rgba(230,230,230,0.9);
     word-spacing: 1px;
 }
 .petition a {
@@ -182,7 +179,7 @@ header .headlines h1 a {
     max-width: 310px;
 }
 .action {
-    background-color: #0a2f51;
+    background-color: #105594;
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
     margin: 0 auto;
     max-width: 310px;
@@ -317,7 +314,7 @@ header .headlines h1 a {
     }
 }
 .action .form-wrapper button {
-    background-color: #ff0000;
+    background-color: #ff2810;
     color: #f1f1f1;
     font-size: 24px;
     font-weight: bold;
@@ -338,7 +335,7 @@ header .headlines h1 a {
 }
 .action span.disclaimer {
     clear: both;
-    color: #96a2ba;
+    color: #8a9bbb;
     display: block;
     font-size: 13px;
     line-height: 1.4;
@@ -370,12 +367,12 @@ header .headlines h1 a {
 }
 .action-wrapper .counter .number-of-signatures-label {
     clear: both;
-    color: #4f81b7;
+    color: #08294e;
     font-size: 28px;
     font-weight: bold;
 }
 .action-wrapper .counter hr {
-    background-color: #0a4f8e;
+    background-color: #08294e;
     border: none;
     height: 1px;
     margin: 24px auto 0;
@@ -422,7 +419,6 @@ button {
     font-family: 'Roboto Condensed', sans-serif;
 }
 .more-info h3 {
-    color: #f1f1f1;
     display: inline-block;
     font-size: 32px;
     font-weight: bold;
@@ -436,7 +432,7 @@ button {
     word-spacing: 1px;
 }
 .petition .sign-the-petition {
-    background-color: #ff0000;
+    background-color: #ff2810;
     box-shadow: none;
     color: #f1f1f1;
     display: inline-block;
@@ -468,14 +464,9 @@ section.more-info {
     background-color: #f1f1f1;
     border: 4px double #bbb;
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
-    color: #444;
     margin: 20px 0 0;
     padding: 20px 50px;
     position: relative;
-}
-section.more-info h1, section.more-info h2,
-section.more-info h3, section.more-info h4 {
-    color: #444;
 }
 section.more-info p {
     max-width: 830px;
@@ -920,10 +911,10 @@ body.thanks-page .petition-and-form-wrapper > .outer-padding {
 
 body.thanks-page section.more-info {
     background-color: transparent;
+    border: none;
     box-shadow: none;
-    color: #fff;
     margin: 0;
-    padding-bottom: 8px;
+    padding-top: 0px;
 }
 
 body.thanks-page section.more-info .more-info-header {
@@ -931,12 +922,12 @@ body.thanks-page section.more-info .more-info-header {
     max-width: none;
     padding: 0;
     text-align: center;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
 body.thanks-page section.more-info .more-info-header h3 {
-    color: #fff;
     margin: 0;
+    padding-top: 0;
+    text-align: center;
 }
 
 body.thanks-page section.more-info p {
@@ -946,7 +937,6 @@ body.thanks-page section.more-info p {
     max-width: none;
     padding: 0;
     text-align: center;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
 body.thanks-page .petition {
@@ -958,12 +948,9 @@ body.thanks-page .petition {
 }
 
 body.thanks-page section.midnight-share-train {
-    background-color: rgba(0, 50, 135, 0.25);
-    box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
 }
 
 body.thanks-page .fb-email-intro {
-    color: #fff;
     font-size: 18px;
     font-weight: 400;
     margin: 0;
@@ -971,7 +958,6 @@ body.thanks-page .fb-email-intro {
     padding: 32px;
     line-height: 1.4;
     text-align: center;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
 body.thanks-page .privacy {
@@ -985,8 +971,7 @@ Twitter Tool
 */
 
 body .twitter-tool {
-    background-color: rgba(0, 50, 135, 0.25);
-    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
     display: inline-block;
     min-height: 170px;
@@ -1001,13 +986,11 @@ body .twitter-tool.visible {
 }
 
 body .twitter-tool .tweet {
-    color: #fff;
     display: inline-block;
     font-size: 18px;
     line-height: 1.4;
     max-width: 370px;
     text-align: left;
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
     word-break: break-word;
 }
 
