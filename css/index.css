@@ -347,7 +347,7 @@ header .headlines h1 a span {
     line-height: 1.4;
     margin: 0 auto;
     max-width: 370px;
-    padding: 16px 38px 0;
+    padding: 16px 38px;
     text-align: center;
 }
 @media screen and (max-width: 769px) {
@@ -359,6 +359,7 @@ header .headlines h1 a span {
     margin: 8px auto -13px;
 }
 .action-wrapper .counter {
+    display: none;
     margin: auto;
     max-width: 413px;
     position: relative;
