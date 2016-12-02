@@ -27,7 +27,7 @@ function start() {
 }
 
 function updateActionKitPage() {
-    const source = StaticKit.query.source;
+    const source = StaticKit.query.cleanedSource;
     const organization = Constants.organizations[source];
 
     let actionKitPage = Constants.actionKitPage;

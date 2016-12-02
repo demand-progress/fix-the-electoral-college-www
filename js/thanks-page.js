@@ -4,7 +4,7 @@ import StaticKit from './static-kit';
 
 
 function start() {
-    const source = StaticKit.query.source;
+    const source = StaticKit.query.cleanedSource;
     const organization = Constants.organizations[source];
 
     let messaging = 'default';

@@ -1216,7 +1216,7 @@
 	}
 
 	function updateActionKitPage() {
-	    var source = _staticKit2.default.query.source;
+	    var source = _staticKit2.default.query.cleanedSource;
 	    var organization = _constants2.default.organizations[source];
 
 	    var actionKitPage = _constants2.default.actionKitPage;
@@ -2931,7 +2931,7 @@
 
 
 	function start() {
-	    var source = _staticKit2.default.query.source;
+	    var source = _staticKit2.default.query.cleanedSource;
 	    var organization = _constants2.default.organizations[source];
 
 	    var messaging = 'default';
