@@ -18,7 +18,7 @@ Will you take a moment to contact the Democratic Party?
 https://${constants.domain}/?source=${StaticKit.query.cleanedSource}-emailshare
 
 Thanks!`;
-constants.tweet = `Fix the Electoral College: Whoever gets the most popular votes should become president! http://fixtheelectoralcollege.com`;
+constants.tweet = `Fix the Electoral College: Whoever gets the most popular votes should become president! https://fixtheelectoralcollege.com`;
 
 // APIs
 constants.actionKitPage = 'fix-the-electoral-college-www';

@@ -173,7 +173,7 @@
 	        }, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
 	    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-	    ga('create', 'UA-74199344-6', 'auto');
+	    ga('create', 'UA-74199344-8', 'auto');
 	    ga('send', 'pageview');
 	}
 
@@ -206,7 +206,7 @@
 	// Social
 	constants.emailSubject = 'Sign this petition: Fix the Electoral College';
 	constants.emailBody = 'Hi,\n\nI just signed a petition at EndSuperdelegates.com telling the Democratic Party to eliminate the concept of so-called \u201Csuperdelegates.\u201D\n\nWill you take a moment to contact the Democratic Party?\n\nhttps://' + constants.domain + '/?source=' + _staticKit2.default.query.cleanedSource + '-emailshare\n\nThanks!';
-	constants.tweet = 'Fix the Electoral College: Whoever gets the most popular votes should become president! http://fixtheelectoralcollege.com';
+	constants.tweet = 'Fix the Electoral College: Whoever gets the most popular votes should become president! https://fixtheelectoralcollege.com';
 
 	// APIs
 	constants.actionKitPage = 'fix-the-electoral-college-www';
