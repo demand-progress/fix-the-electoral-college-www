@@ -13,7 +13,7 @@ import ThanksPage from './thanks-page';
 FastClick.attach(document.body);
 
 // After the page loads
-$(f => {
+$(() => {
     // Set up modals
     Modal.setup();
 
@@ -21,7 +21,7 @@ $(f => {
     $('.animated-scroll').on('click', e => {
         e.preventDefault();
 
-        var target = $(e.target).data('target');
+        const target = $(e.target).data('target');
         $('html, body').stop().animate({
             scrollTop: $(target).offset().top - 16,
         }, 640);
@@ -31,7 +31,7 @@ $(f => {
     $('a.facebook').on('click', e => {
         e.preventDefault();
 
-        var url =
+        const url =
             'https://www.facebook.com/sharer/sharer.php?u=' +
             encodeURIComponent(`${Constants.domain}/?source=${StaticKit.query.cleanedSource}-fbshare`);
         window.open(url);
@@ -61,7 +61,7 @@ $(f => {
             }
         }
 
-        var url =
+        const url =
             'https://twitter.com/intent/tweet?text=' +
             encodeURIComponent(tweet);
         window.open(url);
@@ -71,14 +71,14 @@ $(f => {
     $('a.email').on('click', e => {
         e.preventDefault();
 
-        var url =
+        const url =
             'mailto:?subject=' + encodeURIComponent(Constants.emailSubject) +
             '&body=' + encodeURIComponent(Constants.emailBody);
         window.open(url);
     });
 
     // Page specific code
-    var pageKey = $('body').data('page');
+    const pageKey = $('body').data('page');
     switch (pageKey) {
         case 'home':
             HomePage.start();

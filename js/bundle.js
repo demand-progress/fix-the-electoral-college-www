@@ -83,7 +83,7 @@
 
 	// import Utils from './utils';
 	// Modules
-	$(function (f) {
+	$(function () {
 	    // Set up modals
 	    _modal2.default.setup();
 
@@ -249,7 +249,7 @@
 	    zipErrorAlert: 'Please enter a valid ZIP code.'
 	};
 
-	StaticKit.query = function (f) {
+	StaticKit.query = function () {
 	    var pairs = location.search.slice(1).split('&');
 
 	    var result = {};
@@ -290,7 +290,7 @@
 	    }
 	};
 
-	StaticKit.start = function (f) {
+	StaticKit.start = function () {
 	    if (StaticKit.query.error_zip) {
 	        StaticKit.fillForm(StaticKit.query);
 
@@ -300,7 +300,7 @@
 	            $el.focus();
 	        }
 
-	        setTimeout(function (f) {
+	        setTimeout(function () {
 	            return alert(StaticKit.copy.zipErrorAlert);
 	        }, 250);
 	    }
@@ -2562,11 +2562,7 @@
 	        return false;
 	    }
 
-	    if (!emailRegex.test(email)) {
-	        return false;
-	    }
-
-	    return true;
+	    return emailRegex.test(email);
 	}
 
 	exports.default = {
@@ -2839,7 +2835,7 @@
 	            display: 'table'
 	        });
 
-	        setTimeout(function (f) {
+	        setTimeout(function () {
 	            $modal.removeClass('invisible');
 	        }, 50);
 	    },
@@ -2849,7 +2845,7 @@
 
 	        $modal.addClass('invisible');
 
-	        setTimeout(function (f) {
+	        setTimeout(function () {
 	            $modal.css({
 	                display: 'none'
 	            });
@@ -2882,18 +2878,18 @@
 
 	    resizeTimeout: null,
 
-	    onResize: function onResize(f) {
+	    onResize: function onResize() {
 	        clearTimeout(Modal.resizeTimeout);
 	        Modal.resizeTimeout = setTimeout(Modal.updateMaxHeight, 300);
 	    },
 
-	    updateMaxHeight: function updateMaxHeight(f) {
+	    updateMaxHeight: function updateMaxHeight() {
 	        $('.modal').css({
 	            'max-height': innerHeight + 'px'
 	        });
 	    },
 
-	    setup: function setup(f) {
+	    setup: function setup() {
 	        // Wire all modals
 	        $('.overlay').each(function (i, el) {
 	            Modal.wire(el);
@@ -2978,7 +2974,7 @@
 	        });
 	    });
 	    $('.twitter-tool').removeClass('visible');
-	    setTimeout(function (f) {
+	    setTimeout(function () {
 	        $('.twitter-tool').addClass('visible');
 	    }, 0);
 	}

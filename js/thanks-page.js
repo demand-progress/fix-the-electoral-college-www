@@ -52,7 +52,7 @@ function generateTweet() {
         });
     });
     $('.twitter-tool').removeClass('visible');
-    setTimeout(f => {
+    setTimeout(() => {
         $('.twitter-tool').addClass('visible');
     }, 0);
 }
@@ -104,16 +104,16 @@ function addColorSpansToTweet(tweet) {
 function onTweetFormSubmit(e) {
     e.preventDefault();
 
-    var tweet = `.@${state.twitterIDs.join(' @')} ${state.twitterText}`;
+    const tweet = `.@${state.twitterIDs.join(' @')} ${state.twitterText}`;
 
-    var url =
+    const url =
         'https://twitter.com/intent/tweet?text=' +
         encodeURIComponent(tweet);
 
     window.open(url);
 
     // Show thanks
-    var $submit = $('.tweet-wrapper button');
+    const $submit = $('.tweet-wrapper button');
     $submit.addClass('thanks');
     $submit.text('Thanks!');
 

@@ -152,8 +152,8 @@ function updateCounter() {
         dataType: 'jsonp',
     })
     .then(data => {
-        var size = data.total.actions;
-        var sizeWithCommas = size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        const size = data.total.actions;
+        const sizeWithCommas = size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         $('.number-of-signatures').text(sizeWithCommas);
         $('.counter').addClass('loaded');
     });

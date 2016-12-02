@@ -1,22 +1,22 @@
-var Modal = {
+const Modal = {
     show: modal => {
-        var $modal = $(modal);
+        const $modal = $(modal);
 
         $modal.css({
             display: 'table',
         });
 
-        setTimeout(f => {
+        setTimeout(() => {
             $modal.removeClass('invisible');
         }, 50);
     },
 
     hide: modal => {
-        var $modal = $(modal);
+        const $modal = $(modal);
 
         $modal.addClass('invisible');
 
-        setTimeout(f => {
+        setTimeout(() => {
             $modal.css({
                 display: 'none',
             });
@@ -24,7 +24,7 @@ var Modal = {
     },
 
     wire: modal => {
-        var $modal = $(modal);
+        const $modal = $(modal);
 
         if ($modal.length === 0) {
             return;
@@ -49,18 +49,18 @@ var Modal = {
 
     resizeTimeout: null,
 
-    onResize: f => {
+    onResize: () => {
         clearTimeout(Modal.resizeTimeout);
         Modal.resizeTimeout = setTimeout(Modal.updateMaxHeight, 300);
     },
 
-    updateMaxHeight: f => {
+    updateMaxHeight: () => {
         $('.modal').css({
             'max-height': innerHeight + 'px',
         });
     },
 
-    setup: f => {
+    setup: () => {
         // Wire all modals
         $('.overlay').each((i, el) => {
             Modal.wire(el);

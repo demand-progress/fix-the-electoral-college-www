@@ -2,7 +2,7 @@ import StaticKit from './static-kit';
 
 
 // Container
-var constants = {};
+const constants = {};
 
 // General
 constants.domain = 'fixtheelectoralcollege.net';

@@ -1,13 +1,13 @@
-var StaticKit = {};
+const StaticKit = {};
 
 StaticKit.copy = {
     zipErrorAlert: 'Please enter a valid ZIP code.',
 };
 
-StaticKit.query = (f => {
-    var pairs = location.search.slice(1).split('&');
+StaticKit.query = (() => {
+    const pairs = location.search.slice(1).split('&');
 
-    var result = {};
+    const result = {};
     pairs.forEach(pair => {
         pair = pair.split('=');
         result[pair[0]] = decodeURIComponent(pair[1] || '');
@@ -37,26 +37,26 @@ try {
 } catch (e) {}
 
 StaticKit.fillForm = params => {
-    for (var key in params) {
-        var $el = $('[name="' + key + '"]');
+    for (let key in params) {
+        const $el = $('[name="' + key + '"]');
         if ($el.length > 0) {
             $el.val(params[key]);
         }
     }
 }
 
-StaticKit.start = f => {
+StaticKit.start = () => {
     if (StaticKit.query.error_zip) {
         StaticKit.fillForm(StaticKit.query);
 
-        var $el = $('[name="zip"]');
+        const $el = $('[name="zip"]');
         if ($el.length > 0) {
             $el.val('');
             $el.focus();
         }
 
         setTimeout(
-            f => alert(StaticKit.copy.zipErrorAlert),
+            () => alert(StaticKit.copy.zipErrorAlert),
             250
         );
     }
