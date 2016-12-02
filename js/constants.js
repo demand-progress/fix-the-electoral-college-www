@@ -11,9 +11,9 @@ constants.domain = 'fixtheelectoralcollege.net';
 constants.emailSubject = 'Sign this petition: Fix the Electoral College';
 constants.emailBody = `Hi,
 
-I just signed a petition at EndSuperdelegates.com telling the Democratic Party to eliminate the concept of so-called “superdelegates.”
+I just signed a petition at FixTheElectoralCollege.net to end the outdated, anti-democratic Electoral College's power to overturn the popular vote.
 
-Will you take a moment to contact the Democratic Party?
+Will you take a moment to support the National Popular Vote Interstate Compact?
 
 https://${constants.domain}/?source=${StaticKit.query.cleanedSource}-emailshare
 
