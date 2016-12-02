@@ -11,6 +11,6 @@
     "webpack": "*"
   },
   "scripts": {
-    "compile": "node ./node_modules/webpack/bin/webpack.js --watch"
+    "start": "npm install --loglevel=error & node ./node_modules/webpack/bin/webpack.js --watch"
   }
 }
