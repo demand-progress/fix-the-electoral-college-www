@@ -554,7 +554,7 @@ section .share {
     background-color: #fff;
     margin: 0;
     overflow: hidden;
-    padding: 64px 0 0;
+    padding: 44px 0 0;
 }
 .logos .clamp {
     margin: 0 auto;
@@ -563,9 +563,15 @@ section .share {
 }
 .logos h4 {
     color: #1c366d;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.4;
-    padding: 0 0 16px;
+}
+.logos h4 a {
+    color: #1c366d;
+    font-weight: bold;
+}
+.logos h4 a:hover {
+    color: #0099ff;
 }
 .logos a {
     text-decoration: none;
@@ -579,6 +585,7 @@ section .share {
     vertical-align: middle;
 }
 .logos .smaller img {
+    display: none;
     max-height: 180px;
     max-width: 210px;
 }
@@ -815,7 +822,7 @@ section.midnight-share-train a:hover {
     line-height: 1.4;
     margin: 0;
     overflow: hidden;
-    padding: 32px 32px 64px;
+    padding: 32px 32px 44px;
 }
 .privacy a {
     color: #1c366d;
