@@ -9,5 +9,8 @@
     "jquery": "*",
     "lodash": "*",
     "webpack": "*"
+  },
+  "scripts": {
+    "compile": "node ./node_modules/webpack/bin/webpack.js --watch"
   }
 }

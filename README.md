@@ -1,9 +1,9 @@
 # Fix the Electoral College
 
 ```bash
-# Install NPM modules
+# Install NPM modules (once)
 npm install
 
-# Compile `bundle.js`
-. ./frontend.sh
+# Compile JavaScript
+npm run compile
 ```
