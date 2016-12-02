@@ -36,21 +36,21 @@ constants.requiredFields = [
     // 'last_name',
 ];
 
-// Names
-constants.orgNames = {
-    credo: 'CREDO Action',
-    dk: 'Daily Kos',
-    dp: 'Demand Progress',
-    fftf: 'Fight for the Future',
-    rootsaction: 'RootsAction',
-    watchdog: 'Watchdog.net',
+// Organizations
+constants.organizations = {
+    common_cause: {
+        linkToNPV: true,
+    },
+    demand_progress: {
+        linkToNPV: true,
+        useAltPage: true,
+    },
+    website: {
+        linkToNPV: true,
+    }
 };
 
 // Twitter Handles
-constants.twitterHandles = [
-    '@user1',
-    '@user2',
-    '@user3',
-];
+constants.twitterHandles = [];
 
 export default constants;

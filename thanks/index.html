@@ -11,7 +11,7 @@
     <!-- Style -->
     <link rel="icon" type="image/png" href="../favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Roboto+Condensed:300,400,700">
-    <link rel="stylesheet" href="../css/index.css?v=1.0.0">
+    <link rel="stylesheet" href="../css/index.css?v=1.0.1">
 
     <!-- Facebook -->
     <meta property="og:description" content="Fix the Electoral College: Whoever gets the most popular votes should become president!">
@@ -29,45 +29,6 @@
     <meta name="twitter:site" content="@demandprogress">
     <meta name="twitter:title" content="Fix the Electoral College">
     <meta name="twitter:url" content="https://fixtheelectoralcollege.net/">
-
-    <script type="text/javascript">
-    // Redirect to custom after-action pages
-    (function() {
-        // Map
-        var redirects = {
-            dfa: 'https://secure.actblue.com/contribute/page/end-superdelegates',
-            socialsecurityworks: 'https://secure.actblue.com/contribute/page/superdelegates_ssw',
-        };
-
-        // Source
-        var source = 'website';
-        try {
-            source = sessionStorage.savedSource;
-        } catch (e) {}
-        source = (source.split(/[^\w]/)[0]).toLowerCase();
-
-        // Redirect
-        if (redirects[source]) {
-            location.href = redirects[source];
-        }
-    })();
-    </script>
-
-    <!-- Facebook Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '479474652226318');
-    fbq('track', "PageView");
-    fbq('track', 'ViewContent');</script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=479474652226318&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Facebook Pixel Code -->
 </head>
 
 <body class="thanks-page" data-page="thanks">
@@ -86,11 +47,12 @@
                             </h3>
                         </div>
 
-                        <p class="hides-on-twitter-tool-completion">
-                            Now, please click below to tweet a few of the Rules Committee members who will decide the vote.
-                            <br>
-                            <br>
-                            Then come back to this page, and it'll load new members for you to tweet at. There are almost 200 people on the committee, so tweeting multiple times is the best and fastest way to pressure them.
+                        <p class="prompt prompt-default">
+                            Now please use the tools below to share this with your friends
+                        </p>
+
+                        <p class="prompt prompt-alt">
+                            There's an extra step you can take now that will have even more impact:  Please <a href="http://www.nationalpopularvote.com/write9">click here to use the National Popular Vote Compact's email tool</a> to email your state lawmakers directly, and urge them to pass NPV.
                         </p>
                     </section>
                 </div>
@@ -100,18 +62,6 @@
         </div>
         <!-- .petition-and-form-wrapper -->
     </header>
-
-    <section class="twitter-tool">
-        <div class="tweet hides-on-twitter-tool-completion"></div>
-        <div class="congratulations shows-on-twitter-tool-completion">You got through the list! You are awesome!</div>
-        <a href="share://Twitter" class="button twitter-tool-cta hides-on-twitter-tool-completion" target="_blank">Tweet</a>
-    </section>
-
-    <section class="fb-email-intro">
-        <span class="hides-on-twitter-tool-completion">Then, please</span>
-        <span class="shows-on-twitter-tool-completion">Please</span>
-        share this page on Facebook or using email.  We only have days left until the convention!
-    </section>
 
     <section class="midnight-share-train">
         <div class="share">
@@ -126,7 +76,7 @@
     <!-- Scripts -->
     <script src="../js/vendor/jquery-3.0.0.min.js"></script>
     <script src="../js/vendor/lodash.min.js"></script>
-    <script src="../js/bundle.js?v=1.0.0" async></script>
+    <script src="../js/bundle.js?v=1.0.1" async></script>
 
     <!--[if lt IE 9]>
     <script type="text/javascript">

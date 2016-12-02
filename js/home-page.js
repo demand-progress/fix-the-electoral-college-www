@@ -13,17 +13,32 @@ function start() {
     $('[name=source]').val(StaticKit.query.cleanedSource);
     $('[name=url]').val(location.href);
 
-    // // Disclaimer
-    // updateDisclaimer();
-
     // Sticky form
     setupStickyForm();
 
     // Signature form
     setupSignatureForm();
 
-    // Counter
-    updateCounter();
+    // // Counter
+    // updateCounter();
+
+    // Update AK page
+    updateActionKitPage();
+}
+
+function updateActionKitPage() {
+    const source = StaticKit.query.source;
+    const organization = Constants.organizations[source];
+
+    let actionKitPage = Constants.actionKitPage;
+
+    if (organization && organization.useAltPage) {
+        actionKitPage = Constants.actionKitPageAlt;
+    }
+
+    $('input[name="page"]').val(actionKitPage);
+
+    console.log(actionKitPage);
 }
 
 function setupStickyForm() {
@@ -129,35 +144,18 @@ function setupSignatureForm() {
     });
 }
 
-function updateDisclaimer() {
-    const pattern = /_ns$/;
-    const source = StaticKit.query.cleanedSource;
-    if (!source.match(/_ns$/)) {
-        return;
-    }
-
-    const key = source.replace(pattern, '');
-    const orgName = Constants.orgNames[key];
-    if (orgName) {
-        $('.disclaimer .org-name').text(orgName);
-    }
-
-    $('.disclaimer').css({ display: 'block' });
-    $('.squaredFour').remove();
-}
-
-function updateCounter() {
-    $.ajax({
-        url: `https://act.demandprogress.org/progress/${Constants.actionKitPage}?callback=?`,
-        dataType: 'jsonp',
-    })
-    .then(data => {
-        const size = data.total.actions;
-        const sizeWithCommas = size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        $('.number-of-signatures').text(sizeWithCommas);
-        $('.counter').addClass('loaded');
-    });
-}
+// function updateCounter() {
+//     $.ajax({
+//         url: `https://act.demandprogress.org/progress/${actionKitPage}?callback=?`,
+//         dataType: 'jsonp',
+//     })
+//     .then(data => {
+//         const size = data.total.actions;
+//         const sizeWithCommas = size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//         $('.number-of-signatures').text(sizeWithCommas);
+//         $('.counter').addClass('loaded');
+//     });
+// }
 
 export default {
     start,

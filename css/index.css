@@ -156,19 +156,18 @@ header .headlines h1 a span {
     line-height: 26px;
     padding: 0 24px 24px;
     text-align: left;
-    text-shadow: 0px 0px 7px rgba(230,230,230,0.9);
+    text-shadow: 0 0 7px rgba(230,230,230,0.9);
     word-spacing: 1px;
 }
 .petition a {
-    color: #40bbff;
+    color: #1a64a5;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 20px;
     font-style: normal;
     text-decoration: none;
     transition: color 0.16s;
 }
 .petition a:hover {
-    color: #40aaff;
+    color: #19609e;
 }
 .petition hr {
 	border: 0;
@@ -918,6 +917,17 @@ Thanks page
 body.thanks-page {
 }
 
+body.thanks-page .prompt,
+body.thanks-page .midnight-share-train {
+    animation: fade-in 0.32s forwards;
+    display: none;
+}
+
+body.thanks-page .prompt.visible,
+body.thanks-page.ready .midnight-share-train {
+    display: block;
+}
+
 body.thanks-page .petition-and-form-wrapper > .outer-padding {
     padding: 0;
 }
@@ -1091,4 +1101,18 @@ Twitter Feed
 .twitter-feed {
     border-bottom: 1px solid #ccc;
     padding: 48px 32px;
+}
+
+/*
+Animations
+*/
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

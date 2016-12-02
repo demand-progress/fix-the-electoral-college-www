@@ -219,18 +219,22 @@
 	// Validation
 	constants.requiredFields = ['email', 'postcode'];
 
-	// Names
-	constants.orgNames = {
-	    credo: 'CREDO Action',
-	    dk: 'Daily Kos',
-	    dp: 'Demand Progress',
-	    fftf: 'Fight for the Future',
-	    rootsaction: 'RootsAction',
-	    watchdog: 'Watchdog.net'
+	// Organizations
+	constants.organizations = {
+	    common_cause: {
+	        linkToNPV: true
+	    },
+	    demand_progress: {
+	        linkToNPV: true,
+	        useAltPage: true
+	    },
+	    website: {
+	        linkToNPV: true
+	    }
 	};
 
 	// Twitter Handles
-	constants.twitterHandles = ['@user1', '@user2', '@user3'];
+	constants.twitterHandles = [];
 
 	exports.default = constants;
 
@@ -1198,17 +1202,32 @@
 	    $('[name=source]').val(_staticKit2.default.query.cleanedSource);
 	    $('[name=url]').val(location.href);
 
-	    // // Disclaimer
-	    // updateDisclaimer();
-
 	    // Sticky form
 	    setupStickyForm();
 
 	    // Signature form
 	    setupSignatureForm();
 
-	    // Counter
-	    updateCounter();
+	    // // Counter
+	    // updateCounter();
+
+	    // Update AK page
+	    updateActionKitPage();
+	}
+
+	function updateActionKitPage() {
+	    var source = _staticKit2.default.query.source;
+	    var organization = _constants2.default.organizations[source];
+
+	    var actionKitPage = _constants2.default.actionKitPage;
+
+	    if (organization && organization.useAltPage) {
+	        actionKitPage = _constants2.default.actionKitPageAlt;
+	    }
+
+	    $('input[name="page"]').val(actionKitPage);
+
+	    console.log(actionKitPage);
 	}
 
 	function setupStickyForm() {
@@ -1314,34 +1333,18 @@
 	    });
 	}
 
-	function updateDisclaimer() {
-	    var pattern = /_ns$/;
-	    var source = _staticKit2.default.query.cleanedSource;
-	    if (!source.match(/_ns$/)) {
-	        return;
-	    }
-
-	    var key = source.replace(pattern, '');
-	    var orgName = _constants2.default.orgNames[key];
-	    if (orgName) {
-	        $('.disclaimer .org-name').text(orgName);
-	    }
-
-	    $('.disclaimer').css({ display: 'block' });
-	    $('.squaredFour').remove();
-	}
-
-	function updateCounter() {
-	    $.ajax({
-	        url: 'https://act.demandprogress.org/progress/' + _constants2.default.actionKitPage + '?callback=?',
-	        dataType: 'jsonp'
-	    }).then(function (data) {
-	        var size = data.total.actions;
-	        var sizeWithCommas = size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-	        $('.number-of-signatures').text(sizeWithCommas);
-	        $('.counter').addClass('loaded');
-	    });
-	}
+	// function updateCounter() {
+	//     $.ajax({
+	//         url: `https://act.demandprogress.org/progress/${actionKitPage}?callback=?`,
+	//         dataType: 'jsonp',
+	//     })
+	//     .then(data => {
+	//         const size = data.total.actions;
+	//         const sizeWithCommas = size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	//         $('.number-of-signatures').text(sizeWithCommas);
+	//         $('.counter').addClass('loaded');
+	//     });
+	// }
 
 	exports.default = {
 	    start: start
@@ -2927,129 +2930,18 @@
 	// import Utils from './utils';
 
 
-	var patterns = {
-	    url: /(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,63}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?/g
-	};
-	var handles = [];
-	var tweet = '';
-
 	function start() {
-	    handles = _.clone(_constants2.default.twitterHandles);
-	    handles = _.uniq(handles);
-	    handles = _.shuffle(handles);
+	    var source = _staticKit2.default.query.source;
+	    var organization = _constants2.default.organizations[source];
 
-	    generateTweet();
+	    var messaging = 'default';
 
-	    $('.twitter-tool-cta').on('click', function (e) {
-	        e.preventDefault();
-
-	        var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet);
-	        window.open(url);
-
-	        generateTweet();
-	    });
-	}
-
-	function generateTweet() {
-	    // Congratulate
-	    if (handles.length === 0) {
-	        $('body').addClass('twitter-tool-completed');
-	        return;
+	    if (organization && organization.linkToNPV) {
+	        messaging = 'alt';
 	    }
 
-	    // Update Tweet
-	    tweet = _constants2.default.tweet;
-	    tweet = addHandlesToTweet(tweet);
-
-	    // Update Preview
-	    var preview = addColorSpansToTweet(tweet);
-	    $('.twitter-tool .tweet').html(preview);
-
-	    // Animate
-	    var initialDelay = 100;
-	    var incrementalDelay = 50;
-	    $('.twitter-tool .tweet .handle').each(function (i, el) {
-	        $(el).css({
-	            'transition-delay': initialDelay + incrementalDelay * i + 'ms'
-	        });
-	    });
-	    $('.twitter-tool').removeClass('visible');
-	    setTimeout(function () {
-	        $('.twitter-tool').addClass('visible');
-	    }, 0);
-	}
-
-	function getTweetLength(tweet) {
-	    var length = tweet.length;
-
-	    // URLs cost 23 characters
-	    var urls = tweet.match(patterns.url);
-	    _.each(urls, function (url) {
-	        length -= url.length;
-	        length += 23;
-	    });
-
-	    return length;
-	}
-
-	function addHandlesToTweet(tweet) {
-	    var charactersLeft = 140 - getTweetLength(tweet);
-
-	    var addedHandles = [];
-	    _.each(handles, function (handle) {
-	        var addition = ' ' + handle;
-	        var length = addition.length;
-	        if (length < charactersLeft) {
-	            tweet += addition;
-	            charactersLeft -= length;
-	            addedHandles.push(handle);
-
-	            // Reducing frequency of smaller handles being added
-	            if (charactersLeft < 8) {
-	                return false;
-	            }
-	        }
-	    });
-
-	    _.pullAll(handles, addedHandles);
-
-	    return tweet;
-	}
-
-	function addColorSpansToTweet(tweet) {
-	    tweet = tweet.replace(/#\w+/g, function (match) {
-	        return '<span class="blue">' + match + '</span>';
-	    });
-	    tweet = tweet.replace(/@\w+/g, function (match) {
-	        return '<span class="blue handle">' + match + '</span>';
-	    });
-	    tweet = tweet.replace(/https?:\/\/[\w.]+/g, function (match) {
-	        return '<span class="blue">' + match + '</span>';
-	    });
-	    return tweet;
-	}
-
-	function onTweetFormSubmit(e) {
-	    e.preventDefault();
-
-	    var tweet = '.@' + state.twitterIDs.join(' @') + ' ' + state.twitterText;
-
-	    var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet);
-
-	    window.open(url);
-
-	    // Show thanks
-	    var $submit = $('.tweet-wrapper button');
-	    $submit.addClass('thanks');
-	    $submit.text('Thanks!');
-
-	    // Send event
-	    ga('send', {
-	        hitType: 'event',
-	        eventCategory: 'ThanksPageTweet',
-	        eventAction: 'sent',
-	        eventLabel: _constants2.default.actionKitPage
-	    });
+	    $('.prompt-' + messaging).addClass('visible');
+	    $('body').addClass('ready');
 	}
 
 	exports.default = {
