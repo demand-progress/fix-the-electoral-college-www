@@ -4,6 +4,26 @@ import StaticKit from './static-kit';
 
 
 function start() {
+    showVariantBasedOnSource();
+    trackOutboundLinks();
+}
+
+function trackOutboundLinks() {
+    const $links = $('.outbound-link');
+
+    $links.on('click', e => {
+        e.preventDefault();
+
+        const url = e.target.href;
+
+        ga('send', 'event', 'outbound', 'click', url, {
+            hitCallback: () => document.location = url,
+            transport: 'beacon',
+        });
+    });
+}
+
+function showVariantBasedOnSource() {
     const source = StaticKit.query.cleanedSource;
     const organization = Constants.organizations[source];
 

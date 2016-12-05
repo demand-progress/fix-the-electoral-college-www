@@ -2931,6 +2931,28 @@
 
 
 	function start() {
+	    showVariantBasedOnSource();
+	    trackOutboundLinks();
+	}
+
+	function trackOutboundLinks() {
+	    var $links = $('.outbound-link');
+
+	    $links.on('click', function (e) {
+	        e.preventDefault();
+
+	        var url = e.target.href;
+
+	        ga('send', 'event', 'outbound', 'click', url, {
+	            hitCallback: function hitCallback() {
+	                return document.location = url;
+	            },
+	            transport: 'beacon'
+	        });
+	    });
+	}
+
+	function showVariantBasedOnSource() {
 	    var source = _staticKit2.default.query.cleanedSource;
 	    var organization = _constants2.default.organizations[source];
 
