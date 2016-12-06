@@ -8,10 +8,33 @@
     <!-- Mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Scripts -->
+    <script type="text/javascript">
+        // Redirect to custom after-action pages
+        (function() {
+            // Map
+            var redirects = {
+                pfaw: 'https://secure.pfaw.org/site/SPageNavigator/ms_donation_16007.html?autologin=true',
+            };
+
+            // Source
+            var source = 'website';
+            try {
+                source = sessionStorage.savedSource;
+            } catch (e) {}
+            source = (source.split(/[^\w]/)[0]).toLowerCase();
+
+            // Redirect
+            if (redirects[source]) {
+                location.href = redirects[source];
+            }
+        })();
+    </script>
+
     <!-- Style -->
     <link rel="icon" type="image/png" href="../favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Roboto+Condensed:300,400,700">
-    <link rel="stylesheet" href="../css/index.css?v=1.0.8">
+    <link rel="stylesheet" href="../css/index.css?v=1.0.9">
 
     <!-- Facebook -->
     <meta property="og:description" content="Fix the Electoral College: Whoever gets the most popular votes should become president!">
@@ -55,7 +78,7 @@
                             There's an extra step you can take now that will have even more impact:
                             <br>
                             <br>
-                            <a href="http://www.nationalpopularvote.com/write9" class="outbound-link">Please click here to use the National Popular Vote Compact's email tool to email your state lawmakers directly, and urge them to pass NPV.</a>
+                            <a href="http://www.nationalpopularvote.com/write9" class="npv-link outbound-link">Please click here to use the National Popular Vote Compact's email tool to email your state lawmakers directly, and urge them to pass NPV.</a>
                         </p>
                     </section>
                 </div>
@@ -79,7 +102,7 @@
     <!-- Scripts -->
     <script src="../js/vendor/jquery-3.0.0.min.js"></script>
     <script src="../js/vendor/lodash.min.js"></script>
-    <script src="../js/bundle.js?v=1.0.8" async></script>
+    <script src="../js/bundle.js?v=1.0.9" async></script>
 
     <!--[if lt IE 9]>
     <script type="text/javascript">

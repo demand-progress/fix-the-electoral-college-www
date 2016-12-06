@@ -5,10 +5,10 @@ import StaticKit from './static-kit';
 
 function start() {
     showVariantBasedOnSource();
-    trackOutboundLinks();
+    addEventTracking();
 }
 
-function trackOutboundLinks() {
+function addEventTracking() {
     const $links = $('.outbound-link');
 
     $links.on('click', e => {

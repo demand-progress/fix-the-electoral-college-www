@@ -917,6 +917,14 @@ Thanks page
 body.thanks-page {
 }
 
+body.thanks-page .npv-link {
+    font-size: 24px;
+}
+
+body.thanks-page .npv-link:hover {
+    text-decoration: underline;
+}
+
 body.thanks-page .prompt,
 body.thanks-page .midnight-share-train {
     animation: fade-in 0.32s forwards;

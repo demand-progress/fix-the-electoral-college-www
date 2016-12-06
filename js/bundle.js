@@ -2932,10 +2932,10 @@
 
 	function start() {
 	    showVariantBasedOnSource();
-	    trackOutboundLinks();
+	    addEventTracking();
 	}
 
-	function trackOutboundLinks() {
+	function addEventTracking() {
 	    var $links = $('.outbound-link');
 
 	    $links.on('click', function (e) {
