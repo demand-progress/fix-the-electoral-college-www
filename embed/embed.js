@@ -1,0 +1,188 @@
+(function() {
+    // Standards
+    if (!('querySelector' in document)) {
+        return;
+    }
+
+    // HTML + CSS
+    const html = `
+<style type="text/css">
+    .dp-embedded-form {
+        margin: 0 auto;
+        max-width: 310px;
+    }
+    .dp-embedded-form .dp-embedded-form-action {
+        background-color: #105594;
+        box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+        margin: 0 auto;
+        max-width: 310px;
+        padding: 24px 0 0 0;
+        position: relative;
+        z-index: 99;
+    }
+    .dp-embedded-form .dp-embedded-form-action .dp-embedded-form-form-form-form {
+        margin: 0;
+    }
+    .dp-embedded-form .dp-embedded-form-action .dp-embedded-form-action-h2 {
+        color: #f1f1f1;
+        font-family: Arial, sans-serif;
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding: 0 0 16px;
+        text-align: center;
+    }
+    .dp-embedded-form .dp-embedded-form-action .dp-embedded-form-wrapper .dp-embedded-form-input-grid {
+        margin: 0 32px;
+        position: relative;
+    }
+    @media screen and (max-width: 769px) {
+        .dp-embedded-form .dp-embedded-form-action {
+            bottom: auto !important;
+            position: relative !important;
+            right: auto !important;
+            top: auto !important;
+        }
+        .dp-embedded-form .dp-embedded-form-action .dp-embedded-form-action-h2 {
+            font-size: 24px;
+            padding: 0 0 16px;
+        }
+        .dp-embedded-form .dp-embedded-form-action .dp-embedded-form-wrapper .dp-embedded-form-input-grid {
+            margin: 0 37px;
+        }
+    }
+    .dp-embedded-form .dp-embedded-form-action .dp-embedded-form-wrapper {
+        margin: 0 auto;
+        max-width: 430px;
+        position: relative;
+        vertical-align: top;
+    }
+    .dp-embedded-form .dp-embedded-form-action .dp-embedded-form-wrapper input {
+        border: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        font-weight: normal;
+        height: 60px;
+        line-height: 60px;
+        margin: 0 0 1px;
+        padding: 0 20px;
+        vertical-align: top;
+        width: 100%;
+    }
+    .dp-embedded-form .dp-embedded-form-action .dp-embedded-form-wrapper input:nth-of-type(3) {
+        margin-bottom: 0px;
+    }
+    .dp-embedded-form-action .dp-embedded-form-wrapper button {
+        background-color: #ff2810;
+        border: 0;
+        color: #f1f1f1;
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        height: 60px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: background-color 0.16s;
+        width: 100%;
+    }
+    .dp-embedded-form-action .dp-embedded-form-wrapper button:hover {
+        background-color: #d01010;
+    }
+    .dp-embedded-form-action hr {
+        background-color: #101c30;
+        border: none;
+        height: 1px;
+        margin: 32px auto 0;
+        max-width: 200px;
+        width: 100%;
+    }
+    .dp-embedded-form-action span.dp-embedded-form-disclaimer {
+        clear: both;
+        color: #8a9bbb;
+        display: block;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        line-height: 1.4;
+        margin: 0 auto;
+        max-width: 370px;
+        padding: 16px 38px;
+        text-align: center;
+    }
+    @media screen and (max-width: 769px) {
+        .dp-embedded-form-action span.dp-embedded-form-disclaimer {
+            max-width: 280px;
+        }
+    }
+
+</style>
+<div class="dp-embedded-form">
+    <div class="dp-embedded-form-action">
+        <div class="dp-embedded-form-action-h2">SIGN THE PETITION</div>
+
+        <form class="dp-embedded-form-form-form-form" method="POST" action="https://act.demandprogress.org/act/" accept-charset="utf-8" target="_blank">
+            <div class="dp-embedded-form-wrapper">
+                <div class="dp-embedded-form-input-grid">
+                    <input name="name" placeholder="Name" type="text" autocomplete="on">
+                    <input name="email" placeholder="Email" type="email" autocomplete="on" required="required">
+                    <input name="zip" placeholder="ZIP code" type="text" autocomplete="on" maxlength="10" required="required">
+                    <button type="submit">ADD YOUR NAME</button>
+                </div>
+
+                <div classname="hidden">
+                    <input type="hidden" name="country" value="United States">
+                    <input type="hidden" name="form_name" value="act-petition">
+                    <input type="hidden" name="js" value="1">
+                    <input type="hidden" name="page" value="fix-the-electoral-college-www">
+                    <input type="hidden" name="opt_in" value="1">
+                    <input type="hidden" name="source" value="huffington_post">
+                    <input type="hidden" name="want_progress" value="1">
+                </div>
+            </div>
+        </form>
+
+        <span class="dp-embedded-form-disclaimer">
+            One or more of
+            DailyKos,
+            PFAW,
+            American Family Voices,
+            Brave New Films,
+            Credo,
+            National Priorities Project,
+            Demand Progress,
+            Huffington Post,
+            Common Cause,
+            Public Citizen,
+            RootsAction.org,
+            EveryVoice,
+            MAYDAY PAC,
+            Alliance for Democracy,
+            The Other 98%, and
+            The Nation
+            may contact you about this and future campaigns.
+        </span>
+    </div>
+</div>
+`;
+
+    // Inject
+    var target = document.querySelector('.dp-embedded-form-target');
+    if (!target) {
+        return;
+    }
+    target.innerHTML = html;
+
+    // Get DOM elements
+    var title = document.querySelector('.dp-embedded-form-action-h2');
+    var form = document.querySelector('.dp-embedded-form-form-form-form');
+    var disclaimer = document.querySelector('.dp-embedded-form-disclaimer');
+
+    // After submitting, show a message of thanks
+    form.addEventListener('submit', function() {
+        title.textContent = 'Thanks for taking action!';
+        form.style.display = 'none';
+        disclaimer.style.display = 'none';
+    }, false);
+
+})();

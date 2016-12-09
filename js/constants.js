@@ -61,9 +61,9 @@ constants.organizations = {
         linkToNPV: true,
         useAltPage: true,
     },
-    website: {
-        linkToNPV: true,
-    }
+    // website: {
+    //     linkToNPV: true,
+    // },
 };
 
 // Twitter Handles

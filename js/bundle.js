@@ -227,9 +227,6 @@
 	    demand_progress: {
 	        linkToNPV: true,
 	        useAltPage: true
-	    },
-	    website: {
-	        linkToNPV: true
 	    }
 	};
 
